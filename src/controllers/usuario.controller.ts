@@ -25,3 +25,24 @@ export const listarUsuarios = async (req: Request, res: Response) => {
         res.status(500).json(BaseResponse.error(error.message));
     }
 }
+
+export const loginUsuario = async (req: Request, res: Response) => {
+    try {
+        const { correo, password } = req.body;
+
+        const usuario = await usuarioService.loginUsuario(correo, password);
+
+        if (!usuario) {
+            res.status(401).json(BaseResponse.error(MensajeController.LOGIN_ERROR,404));
+            return;
+        }
+
+        const { password: _, ...usuarioSinPassword } = usuario;
+
+        res.json(BaseResponse.success(usuarioSinPassword, MensajeController.LOGIN_OK));
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(BaseResponse.error(error.message));
+    }
+}
+
