@@ -22,8 +22,13 @@ export const obtenerUsuario = async (idUsuario: number): Promise<Usuario> => {
 }
 
 export const actualizarUsuario = async (idUsuario: number, data: Partial<Usuario>) => {
+    if (data.password) {
+        const salt = await bcrypt.genSalt(10);
+        data.password = await bcrypt.hash(data.password, salt);
+    }
     await repository.update(idUsuario, data);
 }
+
 
 export const darBajaUsuario = async (idUsuario: number): Promise<void> => {
     await repository.update(idUsuario, { estadoAuditoria: EstadoAuditoria.INACTIVO });

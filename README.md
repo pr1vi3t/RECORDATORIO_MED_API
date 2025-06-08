@@ -25,3 +25,9 @@ Este proyecto es el backend de una API diseñado para gestionar recordatorios de
 
 ### Documentación POSTMAN
 Links exportados de postman.
+
+Documentación de la API (Postman)
+Para facilitar el uso y prueba de los endpoints disponibles, se ha documentado la API utilizando Postman. En esta colección encontrarás los endpoints principales (como listar y guardar recordatorios), junto con ejemplos de peticiones y respuestas.
+
+👉 Puedes acceder a la documentación completa aquí:
+[Ver colección en Postman](https://elements.getpostman.com/redirect?entityId=36779961-e999646b-3aba-4c27-9a29-a8e3b2bb288c&entityType=collection)
