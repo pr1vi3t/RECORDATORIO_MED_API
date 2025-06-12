@@ -5,7 +5,7 @@
 ### Descripción:
 Este proyecto es el backend de una API diseñado para gestionar recordatorios de medicamentos, permitiendo a los usuarios registrar, organizar y recibir notificaciones sobre la toma de sus medicinas.
 
-### Configuración y Ejecución
+### Configuración y Ejecución:
 
 1. **Clonar el repositorio**:
      ```bash
@@ -23,11 +23,8 @@ Este proyecto es el backend de una API diseñado para gestionar recordatorios de
      npm start
      ```
 
-### Documentación POSTMAN
-Links exportados de postman.
-
-Documentación de la API (Postman)
-Para facilitar el uso y prueba de los endpoints disponibles, se ha documentado la API utilizando Postman. En esta colección encontrarás los endpoints principales (como listar y guardar recordatorios), junto con ejemplos de peticiones y respuestas.
+### Documentación POSTMAN:
+Para facilitar el uso y prueba de los endpoints disponibles, se ha documentado la API utilizando Postman. En esta colección encontrarás los endpoints principales, junto con ejemplos de peticiones y respuestas.
 
 👉 Mira la documentación aquí:
 [Ver documentación en Postman](https://documenter.getpostman.com/view/36779961/2sB2x5JDJd)
