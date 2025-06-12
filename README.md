@@ -29,6 +29,3 @@ Para facilitar el uso y prueba de los endpoints disponibles, se ha documentado l
 👉 Mira la documentación aquí:
 [Ver documentación en Postman](https://documenter.getpostman.com/view/36779961/2sB2x5JDJd)
 
-👉 Puedes acceder a la colección completa aquí:
-[Ver colección en Postman](https://elements.getpostman.com/redirect?entityId=36779961-e999646b-3aba-4c27-9a29-a8e3b2bb288c&entityType=collection)
-
