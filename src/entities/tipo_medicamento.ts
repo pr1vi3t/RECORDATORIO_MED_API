@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn }  from "typeorm";
+import { Medicamento } from "./medicamento";
 
 @Entity('tipos_medicamento')
 export class TipoMedicamento {
@@ -14,5 +15,7 @@ export class TipoMedicamento {
 
     @Column({ name: 'fecha_creacion' })
     fechaCreacion: Date;
-    
+
+    @OneToMany(() => Medicamento, (medicamento) => medicamento.tipoMedicamento)
+    tiposMedicamento: TipoMedicamento[];
 }   
