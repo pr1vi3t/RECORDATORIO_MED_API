@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn }  from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn }  from "typeorm";
 import { Medicamento } from "./medicamento";
 
 @Entity('tipos_medicamento')

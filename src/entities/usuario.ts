@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Recordatorio } from "./recordatorio";
 
 @Entity('usuarios')
 export class Usuario {
@@ -32,5 +33,8 @@ export class Usuario {
 
     @Column({ name: 'fecha_creacion' })
     fechaCreacion: Date;
+
+    @OneToMany(() => Recordatorio, (recordatorio) => recordatorio.usuario)
+    usuarios: Usuario[];
     
 }   

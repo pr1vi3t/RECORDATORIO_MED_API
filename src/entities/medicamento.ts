@@ -2,6 +2,7 @@ import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, Pri
 import { TipoMedicamento } from "./tipo_medicamento";
 import { PresentacionMedicamento } from "./presentacion_medicamento";
 import { UnidadDosis } from "./unidad_dosis";
+import { Recordatorio } from "./recordatorio";
 
 @Entity('medicamentos')
 export class Medicamento {
@@ -35,4 +36,7 @@ export class Medicamento {
 
     @CreateDateColumn({ name: 'fecha_creacion' })
     fechaCreacion: Date;
+
+    @OneToMany(() => Recordatorio, (recordatorio) => recordatorio.medicamento)
+    medicamentos: Medicamento[];
 }
