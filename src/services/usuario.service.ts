@@ -10,7 +10,9 @@ export const insertarUsuario = async (data: Partial<Usuario>) => {
         const salt = await bcrypt.genSalt(10);
         data.password = await bcrypt.hash(data.password, salt);
     }
-    await repository.save(data);
+    //await repository.save(data);
+    const newUsuario: Usuario = await repository.save(data);
+    return await repository.findOne({where: {idUsuario: newUsuario.idUsuario}})
 }
 
 export const listarUsuarios = async (): Promise<Usuario[]> => {
@@ -28,7 +30,6 @@ export const actualizarUsuario = async (idUsuario: number, data: Partial<Usuario
     }
     await repository.update(idUsuario, data);
 }
-
 
 export const darBajaUsuario = async (idUsuario: number): Promise<void> => {
     await repository.update(idUsuario, { estadoAuditoria: EstadoAuditoria.INACTIVO });

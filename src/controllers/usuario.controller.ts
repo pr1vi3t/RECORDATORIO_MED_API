@@ -7,9 +7,11 @@ import { MensajeController } from "../shared/constants";
 export const insertarUsuario = async (req: Request, res: Response) => {
     try {
         const usuario: Partial<Usuario> = req.body;
-        await usuarioService.insertarUsuario(usuario);
-        res.json(BaseResponse.success(null, MensajeController.INSERTADO_OK));
-    }catch (error) {
+        //await usuarioService.insertarUsuario(usuario);
+        //res.json(BaseResponse.success(null, MensajeController.INSERTADO_OK));
+        const newUsuario: Usuario = await usuarioService.insertarUsuario(usuario);
+        res.json(BaseResponse.success(newUsuario, MensajeController.INSERTADO_OK));
+    } catch (error) {
         console.error(error);
         res.status(500).json(BaseResponse.error(error.message));
     }
@@ -78,7 +80,7 @@ export const loginUsuario = async (req: Request, res: Response) => {
         const usuario = await usuarioService.loginUsuario(correo, password);
 
         if (!usuario) {
-            res.status(401).json(BaseResponse.error(MensajeController.LOGIN_ERROR,404));
+            res.status(401).json(BaseResponse.error(MensajeController.LOGIN_ERROR, 404));
             return;
         }
 
