@@ -3,6 +3,7 @@ import { Usuario } from './usuario';
 import { Medicamento } from './medicamento';
 import { Frecuencia } from './frecuencia';
 import { DiaRecordatorio } from './dia_recordatorio';
+import { HistorialToma } from './historial_toma';
 
 @Entity('recordatorios')
 export class Recordatorio {
@@ -41,4 +42,7 @@ export class Recordatorio {
 
     @OneToMany(() => DiaRecordatorio, (diaRecordatorio) => diaRecordatorio.recordatorio)
     recordatorios: Recordatorio[];
+
+    @OneToMany(() => HistorialToma, (historialToma) => historialToma.recordatorio)
+    recordatorios_ht: Recordatorio[];
 }

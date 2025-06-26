@@ -8,6 +8,8 @@ import medicamentoRouter from './routes/medicamento.route';
 import recordatorioRouter from './routes/recordatorio.route';
 import diaRecordatorioRouter from './routes/dia_recordatorio.route';
 import frecuenciaRouter from './routes/frecuencia.route';
+import contactoEmergenciaRouter from './routes/contacto_emergencia.route';
+import historialTomaRouter from './routes/historial_toma.route';
 
 const app: Application = express();
 
@@ -20,6 +22,8 @@ app.use('/api/v1/medicamentos', medicamentoRouter);
 app.use('/api/v1/recordatorios', recordatorioRouter);
 app.use('/api/v1/dias-recordatorio', diaRecordatorioRouter);
 app.use('/api/v1/frecuencias', frecuenciaRouter);
+app.use('/api/v1/contactos-emergencia', contactoEmergenciaRouter);
+app.use('/api/v1/historial-tomas', historialTomaRouter);
 
 export const startServer = async () => {
     try {
