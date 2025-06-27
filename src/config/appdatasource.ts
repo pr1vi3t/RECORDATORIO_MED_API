@@ -8,6 +8,8 @@ import { Medicamento } from "../entities/medicamento";
 import { Recordatorio } from "../entities/recordatorio";
 import { DiaRecordatorio } from "../entities/dia_recordatorio";
 import { Frecuencia } from "../entities/frecuencia";
+import { ContactoEmergencia } from "../entities/contacto_emergencia";
+import { HistorialToma } from "../entities/historial_toma";
 
 export const AppDataSource = new DataSource({
     type: DB_TYPE as any,
@@ -16,5 +18,5 @@ export const AppDataSource = new DataSource({
     username: DB_USERNAME,
     password: DB_PASSWORD,
     database: DB_DATABASE,
-    entities: [Usuario, TipoMedicamento, UnidadDosis, PresentacionMedicamento, Medicamento, Recordatorio, DiaRecordatorio, Frecuencia]
+    entities: [Usuario, TipoMedicamento, UnidadDosis, PresentacionMedicamento, Medicamento, Recordatorio, DiaRecordatorio, Frecuencia, ContactoEmergencia, HistorialToma]
 });

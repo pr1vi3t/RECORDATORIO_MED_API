@@ -10,7 +10,6 @@ export const insertarUsuario = async (data: Partial<Usuario>) => {
         const salt = await bcrypt.genSalt(10);
         data.password = await bcrypt.hash(data.password, salt);
     }
-    //await repository.save(data);
     const newUsuario: Usuario = await repository.save(data);
     return await repository.findOne({where: {idUsuario: newUsuario.idUsuario}})
 }

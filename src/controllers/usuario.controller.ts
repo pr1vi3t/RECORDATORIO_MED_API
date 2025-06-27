@@ -7,8 +7,6 @@ import { MensajeController } from "../shared/constants";
 export const insertarUsuario = async (req: Request, res: Response) => {
     try {
         const usuario: Partial<Usuario> = req.body;
-        //await usuarioService.insertarUsuario(usuario);
-        //res.json(BaseResponse.success(null, MensajeController.INSERTADO_OK));
         const newUsuario: Usuario = await usuarioService.insertarUsuario(usuario);
         res.json(BaseResponse.success(newUsuario, MensajeController.INSERTADO_OK));
     } catch (error) {
