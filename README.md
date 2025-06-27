@@ -13,12 +13,15 @@ Este proyecto es el backend de una API diseñado para gestionar recordatorios de
      cd RECORDATORIO_MED_API
      ```
 
-2. **Instalar las dependencias del proyecto**:
+2. **Configurar y preparar la base de datos**:
+     * Ejecutar el script SQL `script-database.sql` (ubicado en la carpeta `database`) para crear la base de datos completa y necesaria para el proyecto.
+
+3. **Instalar las dependencias del proyecto**:
      ```bash
      npm install
      ```
 
-3. **Iniciar el proyecto**:
+4. **Iniciar el proyecto**:
      ```bash
      npm start
      ```
