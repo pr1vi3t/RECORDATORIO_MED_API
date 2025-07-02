@@ -26,3 +26,11 @@ export const actualizarDiaRecordatorio = async (idDiaRecordatorio: number, data:
 export const darBajaDiaRecordatorio = async (idDiaRecordatorio: number): Promise<void> => {
     await repository.update(idDiaRecordatorio, { estadoAuditoria: EstadoAuditoria.INACTIVO });
 }
+
+export const listarDiasRecordatorioPorRecordatorio = async (idRecordatorio: number): Promise<DiaRecordatorio[]> => {
+    return await repository.find({where: {
+        estadoAuditoria: EstadoAuditoria.ACTIVO,
+        recordatorio: { idRecordatorio, estadoAuditoria: EstadoAuditoria.ACTIVO }
+    },
+    relations: ['recordatorio']});
+}
