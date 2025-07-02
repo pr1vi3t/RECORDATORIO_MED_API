@@ -70,3 +70,14 @@ export const darBajaRecordatorio = async (req: Request, res: Response) => {
         res.status(500).json(BaseResponse.error(error.message));
     }
 }
+
+export const listarRecordatoriosPorUsuario = async (req: Request, res: Response) => {
+    try {
+        const { idUsuario } = req.params;
+        const recordatorios = await recordatorioService.listarRecordatoriosPorUsuario(Number(idUsuario));
+        res.json(BaseResponse.success(recordatorios));
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(BaseResponse.error(error.message));
+    }
+}

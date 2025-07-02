@@ -28,3 +28,13 @@ export const actualizarRecordatorio = async (idRecordatorio: number, data: Parti
 export const darBajaRecordatorio = async (idRecordatorio: number): Promise<void> => {
     await repository.update(idRecordatorio, { estadoAuditoria: EstadoAuditoria.INACTIVO });
 }
+
+export const listarRecordatoriosPorUsuario = async (idUsuario: number): Promise<Recordatorio[]> => {
+    return await repository.find({where: {
+        estadoAuditoria: EstadoAuditoria.ACTIVO,
+        usuario: { idUsuario, estadoAuditoria: EstadoAuditoria.ACTIVO },
+        medicamento: { estadoAuditoria: EstadoAuditoria.ACTIVO },
+        frecuencia: { estadoAuditoria: EstadoAuditoria.ACTIVO }
+    },
+    relations: ['usuario','medicamento','frecuencia', 'medicamento.unidadDosis', 'recordatorios']});
+}
