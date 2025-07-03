@@ -7,8 +7,8 @@ import { MensajeController } from "../shared/constants";
 export const insertarRecordatorio = async (req: Request, res: Response) => {
     try {
         const recordatorio: Partial<Recordatorio> = req.body;
-        await recordatorioService.insertarRecordatorio(recordatorio);
-        res.json(BaseResponse.success(null, MensajeController.INSERTADO_OK));
+        const nuevoRecordatorio = await recordatorioService.insertarRecordatorio(recordatorio);
+        res.json(BaseResponse.success({ idRecordatorio: nuevoRecordatorio.idRecordatorio }, MensajeController.INSERTADO_OK));
     } catch (error) {
         console.error(error);
         res.status(500).json(BaseResponse.error(error.message));
