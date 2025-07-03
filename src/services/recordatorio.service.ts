@@ -5,7 +5,8 @@ import { EstadoAuditoria } from "../enums/estado-auditoria";
 const repository = AppDataSource.getRepository(Recordatorio);
 
 export const insertarRecordatorio = async (data: Partial<Recordatorio>) => {
-    await repository.save(data);
+    const nuevo = repository.create(data);
+    return await repository.save(nuevo);
 }
 
 export const listarRecordatorios = async (): Promise<Recordatorio[]> => {
